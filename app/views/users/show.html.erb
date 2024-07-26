@@ -1,0 +1,24 @@
+<h1>Users details </h1>
+
+<table>
+<tr>
+<th>email<hr></th>
+<th>avatar<hr></th>
+<th>photos<hr></th>
+</tr>
+
+<tr>
+
+<td>
+<%= @user.email %><hr>
+</td>
+
+<td>
+<%= @user.password %><hr>
+</td>
+
+
+</table>
+
+
+<%= link_to 'back', users_path(@users)%>

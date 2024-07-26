@@ -1,0 +1,52 @@
+<hr>
+<h1>Users<hr></h1>
+<%=form_with url:"/search",method: :get do |form| %>
+  <%= form.label :key, "search:" %>
+  <%= form.text_field :key %>
+  <%= form.submit "search" %>
+<%end%><hr>
+<%= link_to 'Create User', new_user_path%><hr>
+<table>
+<tr>
+<th>name <hr></th>
+<th>email<hr></th>
+<th>gender<hr></th>
+<th>dob<hr></th>
+<th>city<hr></th>
+</tr> 
+<% @users.each do |user| %>
+<tr>
+
+    <td>
+    <%= user.name %><hr>
+    </td>
+    <td>
+    <%= user.email %><hr>
+    </td>
+    <td>
+    <%= user.gender %><hr>
+    </td>
+    <td>
+    <%= user.dob %><hr>
+    </td>
+    <td>
+    <%= user.city %><hr>
+    </td>
+    <td> 
+    <%= link_to 'show',user_path(user.id) %><hr>
+    </td>
+    <td>
+    <%= link_to 'edit', edit_user_path(user.id) %><hr>
+    </td>
+    <td>
+    <%= link_to 'delete',user_path(user.id), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      } %><hr>
+    </td>
+    
+</tr>
+<% end %>
+
+</table>
+

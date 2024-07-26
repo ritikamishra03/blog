@@ -1,0 +1,52 @@
+<h2>Articles</h2>
+<% @user.articles.each do |article| %>
+  <p>
+    <strong>Article:</strong>
+    <%= article.article %>
+  </p>
+
+  <p>
+    <strong>Content</strong>
+    <%= article.body %>
+  </p>
+<% end %>
+
+
+<h2> Add Article </h2>
+<%= form_with model:[@user, @user.articles.build ] do |form| %>
+    <p>
+    <%= form.label :article %><br>
+    <%= form.text_field :article %>
+    </p>
+
+    <p>
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+    </p>
+
+    <p>
+    <%= form.submit %>
+    </p>
+<% end %>
+
+
+<tr>
+  <td>
+  <%= article.article %>
+<td>
+
+
+_form.html.erb
+<%= fields_for :articles, user.articles do |article_form| %>
+        <%= article_form.text_field :article %>
+    <% end %>
+
+    <%= form.fields_for :articles do |article_form| %>
+        <%= article_form.label :Article %>
+        <%= article_form.text_field :article %>
+    <% end %>
+
+    coolection of arbitarty object 
+    <div>
+      <%= form.collection_select :user_id, User.order(name: :desc),:id, :name%>
+      </div>

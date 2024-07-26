@@ -1,0 +1,18 @@
+<h2> Articles</h2>
+<br>
+<table>
+<tr>
+<th>Article <hr></th>
+</tr> 
+<% @articles.each do |article| %>
+    <tr>
+    <td>
+    <%= article.article %><hr>
+    <td>
+    <%=link_to "Show Content", user_article_path(id:article.id)%>
+    </tr>
+<%end%>
+</table>
+<%= link_to 'Back', user_path(@user)%>
+
+

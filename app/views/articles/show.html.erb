@@ -1,0 +1,17 @@
+<h1>
+<%=@article.article%>
+</h1>
+
+
+<p>
+<%=@article.body%>
+</p>
+
+<p>
+<%=@article.file%>
+</p>
+
+<%= link_to 'delete',user_article_path(@user), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"} %>
+<%= link_to 'Back', user_articles_path%>

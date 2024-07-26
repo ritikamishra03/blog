@@ -1,0 +1,25 @@
+<h2> Add Article </h2>
+<%= form_with model:[@user, @user.articles.build ] do |form| %>
+    <div>
+    <%= form.label :article %><br>
+    <%= form.text_field :article %>
+    <div>
+
+    <br>
+
+    <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body,size:"70x5" %>
+    </div>
+    
+    <br>
+
+    <div>
+    <%= form.label :file %>
+    <%= form.file_field :file %>
+    </div>
+
+    <div>
+    <%= form.submit %>
+    </div>
+<% end %>
